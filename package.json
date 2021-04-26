@@ -1,0 +1,12 @@
+{
+  "name": "tuna-toast",
+  "version": "1.0.0",
+  "description": "Minimalist toast.",
+  "main": "index.js",
+  "author": "Leonardo Tuna",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/typescript": "^2.0.0",
+    "typescript": "^4.2.4"
+  }
+}
