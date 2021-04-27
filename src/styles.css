@@ -1,20 +1,19 @@
 :root {
     --tuna-toast: #fff;
     --tuna-toast-success: #07bc0c;
-    --tuna-toast-error: #e74c3c;
+    --tuna-toast-error: #e74c3c
 }
 
 #toast-container {
     position: fixed;
-    padding: 8px 16px;
-    color: #ffffff;
-    display: inline-block;
-    z-index: 999;
-    top: 0;
-    right: 0;
+    color: #fff;
+    z-index: 99999;
+    top: 8px;
+    right: 8px;
 }
 
 .toast {
+    position: relative;
     width: 200px;
     padding: 8px;
     border-radius: 3px;
@@ -24,13 +23,12 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    transform: translateY(var(100px));
 }
 
 .toast--success {
-    background-color: var(--tuna-toast-success);
+    background-color: var(--tuna-toast-success)
 }
 
 .toast--error {
-    background-color: var(--tuna-toast-error);
+    background-color: var(--tuna-toast-error)
 }
