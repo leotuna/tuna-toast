@@ -6,7 +6,7 @@
 
 #toast-container {
     position: fixed;
-    color: #fff;
+    color: #000;
     z-index: 99999;
     top: 8px;
     right: 8px;
@@ -26,9 +26,11 @@
 }
 
 .toast--success {
-    background-color: var(--tuna-toast-success)
+    background-color: var(--tuna-toast-success);
+    color: #fff;
 }
 
 .toast--error {
-    background-color: var(--tuna-toast-error)
+    background-color: var(--tuna-toast-error);
+    color: #fff;
 }

@@ -7,14 +7,18 @@ class Toast {
 
   private id: number = 0
 
-  public success = (message: string): void => this.run(message, "toast--success")
+  public success = (message: string): void => {
+    this.run(message, "toast--success")
+  }
 
-  public error = (message: string): void => this.run(message, "toast--error")
+  public error = (message: string): void => {
+    this.run(message, "toast--error")
+  }
 
   public close = (id: string): void => {
     const element = document.getElementById(id)
     
-    if (element === null) {
+    if (!element) {
       return
     }
 
@@ -26,36 +30,34 @@ class Toast {
   }
 
   private run = (message: string, className: string): void => {
-    var elem = document.createElement("div")
+    var toast = document.createElement("div")
 
-    elem.classList.add("toast", className)
+    toast.classList.add("toast", className)
 
-    elem.onclick = () => this.close(elem.id)
+    toast.innerText = message
 
-    elem.innerText = message
-
-    elem.id = `toast-${this.id}`
+    toast.id = `toast-${this.id}`
     
+    toast.onclick = () => this.close(toast.id)
+
     this.id++
 
-    const element = document.getElementById(this.container)
+    const container = document.getElementById(this.container)
 
-    if (element === null) {
-      return
+    if (!container) {
+      throw new Error("Could not find toast container to append toast message.")
     }
 
-    element.appendChild(elem)
+    container.appendChild(toast)
 
-    this.autoClose(elem.id)
+    this.autoClose(toast.id)
   }
 
   private init = (): void => {
-    const elements = document.getElementsByTagName("body")
-
-    const body = elements[0]
+    const body = document.querySelector("body")
 
     if (!body) {
-      throw new Error("Cannot append toast container to html body.")
+      throw new Error("Could not find body to append toast container.")
     }
 
     body.insertAdjacentHTML("beforeend", "<div id='toast-container'></div>")
