@@ -2,11 +2,16 @@
   "name": "tuna-toast",
   "version": "1.0.0",
   "description": "Minimalist toast.",
-  "main": "index.js",
   "author": "Leonardo Tuna",
   "license": "MIT",
+  "scripts": {
+    "build": "yarn tsc && yarn minify-css",
+    "minify-css": "postcss ./src/styles.css > ./dist/styles.min.css"
+  },
   "devDependencies": {
     "@types/typescript": "^2.0.0",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "cssnano": "^4.1.10",
+    "postcss-cli": "^6.1.2"
   }
 }
